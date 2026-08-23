@@ -665,3 +665,25 @@ img { max-width: 100%; display: block; }
 .chat-msg.mine .bubble { background: rgba(124,163,140,0.14); border-color: var(--vein); }
 .chat-input { display: flex; gap: 10px; margin-top: 8px; }
 .chat-input input { flex: 1; }
+
+
+/* ---------- Ecosystem / feature cards ---------- */
+.feature-split {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.feature-card {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 28px;
+  min-height: 180px;
+  transition: transform .25s var(--ease), border-color .25s var(--ease);
+}
+.feature-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--ivory-dim);
+}
+@media (max-width: 860px) {
+  .feature-split { grid-template-columns: 1fr; }
+}

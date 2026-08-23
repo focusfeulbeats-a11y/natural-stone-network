@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Project Dashboard — Natural Stone Network</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380..600;1,9..144,380..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.dashboard-shell{padding:56px 0 90px}
+.dash-head{display:flex;justify-content:space-between;gap:24px;align-items:flex-end;margin-bottom:34px}
+.dash-grid{display:grid;grid-template-columns:1.5fr .85fr;gap:24px}
+.panel{background:var(--panel);border:1px solid var(--line);padding:24px;border-radius:var(--radius)}
+.panel h2{font-size:1.55rem;margin-bottom:8px}
+.panel h3{font-size:1.15rem}
+.quote-table{width:100%;border-collapse:collapse;margin-top:18px}
+.quote-table th,.quote-table td{text-align:left;padding:15px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.quote-table th{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--vein-bright)}
+.quote-price{font-weight:700;color:var(--ivory)}
+.badge{display:inline-block;padding:4px 8px;border:1px solid var(--line);font-size:.72rem;color:var(--ivory-dim);margin-top:5px}
+.timeline{position:relative;margin:22px 0 0 8px}
+.timeline:before{content:"";position:absolute;left:8px;top:5px;bottom:5px;width:1px;background:var(--line)}
+.step{position:relative;padding:0 0 22px 34px}
+.step:before{content:"";position:absolute;left:3px;top:5px;width:11px;height:11px;border-radius:50%;background:var(--charcoal);border:2px solid var(--line)}
+.step.done:before{background:var(--vein-bright);border-color:var(--vein-bright)}
+.step.current:before{background:var(--bronze);border-color:var(--bronze-bright)}
+.step strong{display:block;color:var(--ivory);margin-bottom:2px}
+.step span{font-size:.85rem;color:var(--ivory-dim)}
+.metric-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.metric{border:1px solid var(--line);padding:14px}
+.metric strong{display:block;font-size:1.2rem}
+.small-note{font-size:.84rem;color:var(--ivory-dim)}
+@media(max-width:900px){.dash-grid{grid-template-columns:1fr}.dash-head{display:block}.metric-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html"><span class="mark"></span>Natural Stone Network</a>
+    <nav class="nav-links">
+      <a href="index.html#gallery">Inspiration</a>
+      <a href="professionals.html">Professionals</a>
+      <a href="opportunities.html">Work</a>
+      <a href="index.html#academy">Academy</a>
+      <a href="index.html#suppliers">Suppliers</a>
+    </nav>
+    <div class="nav-cta"><a class="btn btn-ghost btn-sm" href="index.html">Back to network</a></div>
+  </div>
+</header>
+
+<main class="dashboard-shell">
+<div class="container">
+  <div class="dash-head">
+    <div>
+      <span class="eyebrow">My project</span>
+      <h1>Marble kitchen renovation</h1>
+      <p class="hero-lede">One place for your brief, quotations, documents and every project milestone.</p>
+    </div>
+    <span class="badge">Project status · Quote comparison</span>
+  </div>
+
+  <div class="dash-grid">
+    <section class="panel">
+      <h2>Compare quotations</h2>
+      <p>Everything you need to choose confidently, side by side.</p>
+      <table class="quote-table">
+        <thead><tr><th>Professional</th><th>Price</th><th>Timeline</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Halden Stoneworks</strong><br><span class="small-note">Verified · 4.9 ★</span></td><td class="quote-price">£4,800</td><td>2 weeks</td><td><span class="badge">Recommended</span></td></tr>
+          <tr><td><strong>Marrow &amp; Finch</strong><br><span class="small-note">Verified · 5.0 ★</span></td><td class="quote-price">£5,100</td><td>3 weeks</td><td><span class="badge">Received</span></td></tr>
+          <tr><td><strong>The Yorkshire Stone Co.</strong><br><span class="small-note">Verified · 4.8 ★</span></td><td class="quote-price">£4,500</td><td>4 weeks</td><td><span class="badge">Received</span></td></tr>
+        </tbody>
+      </table>
+      <div class="metric-row">
+        <div class="metric"><strong>3</strong><span class="small-note">Quotes received</span></div>
+        <div class="metric"><strong>2–4 wks</strong><span class="small-note">Estimated range</span></div>
+        <div class="metric"><strong>Marble</strong><span class="small-note">Material selected</span></div>
+      </div>
+    </section>
+
+    <aside class="panel">
+      <h2>Project timeline</h2>
+      <p>Once you accept a quote, this becomes your live project workspace.</p>
+      <div class="timeline">
+        <div class="step done"><strong>Project brief created</strong><span>Measurements and requirements captured</span></div>
+        <div class="step done"><strong>Site survey</strong><span>Completed · 12 August</span></div>
+        <div class="step current"><strong>Quotes received</strong><span>Compare and choose your professional</span></div>
+        <div class="step"><strong>Materials ordered</strong><span>Pending quote approval</span></div>
+        <div class="step"><strong>Fabrication</strong><span>Future milestone</span></div>
+        <div class="step"><strong>Installation</strong><span>Future milestone</span></div>
+        <div class="step"><strong>Completed &amp; documented</strong><span>Review, warranty and stone passport</span></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="dash-grid" style="margin-top:24px">
+    <section class="panel">
+      <h2>Project files</h2>
+      <p>Keep the important information together rather than scattered across email and messaging apps.</p>
+      <p class="small-note">Measurements · Drawings · Quotes · Invoices · Material specifications · Warranty · Care guide</p>
+    </section>
+    <section class="panel">
+      <h2>Aftercare</h2>
+      <p>When the project is complete, your dashboard can continue to hold sealing reminders, maintenance history and repair requests.</p>
+      <a class="btn btn-ghost btn-sm" href="index.html#aftercare">Explore aftercare</a>
+    </section>
+  </div>
+</div>
+</main>
+</body>
+</html>

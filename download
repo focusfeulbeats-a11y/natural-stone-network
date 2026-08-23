@@ -1,4 +1,5 @@
-.DS_Store
-Thumbs.db
+.env
+data/*.db
+data/*.db-journal
 node_modules/
 *.log

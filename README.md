@@ -15,6 +15,7 @@ This repo contains the **front-end MVP prototype**: a static, dependency-free mu
 | Join / Founding Member | `signup.html` | Role-based sign-up form (customer / professional / business / supplier) |
 | Work opportunities | `opportunities.html` | Filterable list of permanent/temporary/subcontract roles across businesses |
 | Professional dashboard | `dashboard-professional.html` | Enquiries, active projects, engagement stats, AI tools, profile completeness |
+| Customer dashboard | `dashboard-customer.html` | Quote comparison, project timeline, project files and aftercare |
 | Business dashboard | `dashboard-business.html` | Leads/enquiries, team, recruitment postings, portfolio performance |
 | Supplier profile | `supplier-profile.html` | A supplier's material catalogue and the projects built with their stone |
 | Knowledge Centre article | `article.html` | Editorial guide template with related-article links |
@@ -106,3 +107,10 @@ natural-stone-network/
 │   └── src/
 └── README.md
 ```
+
+
+## Product direction
+
+The current prototype now treats the customer/professional dashboard and project timeline as a core part of the product, rather than a later add-on. The customer journey is designed around **discover → compare → hire → manage → complete → maintain**.
+
+The Natural Stone Academy, recruitment marketplace and post-project aftercare are also positioned as first-class ecosystem components. Payment/escrow remains intentionally future-facing and should only be integrated through an appropriate regulated payment provider once the network has sufficient activity and trust.
