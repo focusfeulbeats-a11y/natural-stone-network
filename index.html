@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natural Stone Network — The UK's Home for Natural Stone Craft</title>
+<meta name="description" content="Discover exceptional natural stone work, showcase your craftsmanship, and build your reputation. The UK's specialist network for stone professionals, architects and clients.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,380..600;1,9..144,380..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   Natural Stone Network — Design System
+   Palette: charcoal stone, ivory marble, malachite vein, bronze fitting
+   Type: Fraunces (display) / Inter (body & UI)
+   ========================================================================== */
+
+:root {
+  --charcoal: #201e1b;
+  --charcoal-soft: #2b2824;
+  --panel: #322e29;
+  --line: #4a453e;
+  --ivory: #efe9de;
+  --ivory-dim: #cfc7b8;
+  --vein: #5c7a68;
+  --vein-bright: #7fa38c;
+  --bronze: #b3854f;
+  --bronze-bright: #d4a06a;
+  --radius: 2px;
+  --max: 1240px;
+  --ease: cubic-bezier(.22, .61, .36, 1);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--charcoal);
+  color: var(--ivory);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 480;
+  line-height: 1.08;
+  margin: 0 0 0.4em;
+  letter-spacing: -0.01em;
+  color: var(--ivory);
+}
+
+h1 { font-size: clamp(2.6rem, 5.6vw, 5rem); font-optical-sizing: auto; }
+h2 { font-size: clamp(1.9rem, 3.4vw, 2.9rem); }
+h3 { font-size: 1.4rem; font-weight: 500; }
+
+p { color: var(--ivory-dim); margin: 0 0 1em; }
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--vein-bright);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--vein-bright);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  white-space: nowrap;
+}
+.btn-primary { background: var(--bronze); color: #1a1815; }
+.btn-primary:hover { background: var(--bronze-bright); transform: translateY(-1px); }
+.btn-ghost { border-color: var(--line); color: var(--ivory); background: transparent; }
+.btn-ghost:hover { border-color: var(--ivory-dim); background: rgba(239,233,222,0.04); }
+.btn-sm { padding: 9px 18px; font-size: 0.82rem; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(32, 30, 27, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+.logo {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo span.mark {
+  width: 9px; height: 9px;
+  background: var(--vein-bright);
+  border-radius: 50%;
+  display: inline-block;
+}
+.nav-links {
+  display: flex;
+  gap: 34px;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+.nav-links a { color: var(--ivory-dim); transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--ivory); }
+.nav-cta { display: flex; gap: 12px; align-items: center; }
+.nav-toggle { display: none; }
+
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .nav-cta .btn-ghost { display: none; }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  padding: 120px 0 100px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items: center;
+}
+.hero h1 { margin-bottom: 26px; }
+.hero h1 em {
+  font-style: italic;
+  color: var(--vein-bright);
+}
+.hero-lede { font-size: 1.15rem; max-width: 480px; margin-bottom: 36px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.hero-visual {
+  position: relative;
+  aspect-ratio: 4/5;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, #3b352d 0%, #241f1a 55%, #171310 100%);
+}
+.hero-visual svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* Vein line signature element */
+.vein-line {
+  stroke: var(--vein-bright);
+  stroke-width: 1.4;
+  fill: none;
+  stroke-dasharray: 2200;
+  stroke-dashoffset: 2200;
+  animation: draw-vein 3.2s var(--ease) forwards 0.3s;
+  opacity: 0.85;
+}
+.vein-line.secondary { stroke: var(--bronze); opacity: 0.55; stroke-width: 1; }
+@keyframes draw-vein { to { stroke-dashoffset: 0; } }
+
+.vein-connector {
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(var(--line), transparent);
+  transform: translateX(-50%);
+}
+
+/* ---------- Journey cards ---------- */
+.section { padding: 96px 0; border-bottom: 1px solid var(--line); }
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 52px;
+  flex-wrap: wrap;
+}
+.section-head p { max-width: 480px; margin: 0; }
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.journey-card {
+  background: var(--charcoal);
+  padding: 34px 28px 30px;
+  transition: background 0.3s var(--ease);
+  position: relative;
+}
+.journey-card:hover { background: var(--charcoal-soft); }
+.journey-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  color: var(--vein);
+  font-size: 0.95rem;
+  margin-bottom: 22px;
+  display: block;
+}
+.journey-card h3 { margin-bottom: 10px; }
+.journey-card p { font-size: 0.92rem; margin-bottom: 20px; }
+.journey-card .arrow { color: var(--bronze-bright); font-size: 0.85rem; font-weight: 600; }
+
+@media (max-width: 900px) {
+  .journey-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .journey-grid { grid-template-columns: 1fr; }
+  .hero-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Project gallery ---------- */
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+}
+.chip {
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  color: var(--ivory-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.chip.active, .chip:hover { border-color: var(--vein-bright); color: var(--ivory); }
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.project-card {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  overflow: hidden;
+  transition: transform 0.35s var(--ease), border-color 0.35s;
+}
+.project-card:hover { transform: translateY(-4px); border-color: var(--vein); }
+.project-thumb {
+  aspect-ratio: 4/3;
+  position: relative;
+  overflow: hidden;
+}
+.project-thumb .swatch { position: absolute; inset: 0; }
+.project-thumb .tag {
+  position: absolute;
+  top: 14px; left: 14px;
+  background: rgba(32,30,27,0.75);
+  backdrop-filter: blur(4px);
+  padding: 5px 11px;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+.project-body { padding: 20px 22px 22px; }
+.project-body h3 { font-size: 1.05rem; margin-bottom: 4px; }
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--ivory-dim);
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.project-stats { display: flex; gap: 14px; }
+
+@media (max-width: 900px) { .project-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px) { .project-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Stat / band ---------- */
+.band {
+  background: var(--charcoal-soft);
+  border-bottom: 1px solid var(--line);
+  padding: 60px 0;
+}
+.band-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.stat { text-align: left; }
+.stat .num { font-family: 'Fraunces', serif; font-size: 2.6rem; color: var(--vein-bright); display: block; }
+.stat .label { font-size: 0.82rem; color: var(--ivory-dim); text-transform: uppercase; letter-spacing: 0.06em; }
+@media (max-width: 700px) { .band-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- Cards: pros, generic ---------- */
+.pro-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.pro-card {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 26px 22px;
+  text-align: center;
+}
+.pro-avatar {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  background: linear-gradient(140deg, var(--vein), var(--charcoal));
+  border: 1px solid var(--line);
+}
+.pro-card h3 { font-size: 1rem; margin-bottom: 2px; }
+.pro-role { font-size: 0.78rem; color: var(--vein-bright); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+.pro-loc { font-size: 0.82rem; color: var(--ivory-dim); margin-bottom: 16px; }
+.badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--bronze-bright);
+  border: 1px solid var(--bronze);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+@media (max-width: 900px) { .pro-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .pro-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Two column feature ---------- */
+.feature-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.feature-split.reverse .feature-visual { order: 2; }
+.feature-visual {
+  aspect-ratio: 5/4;
+  background: linear-gradient(150deg, #3b352d, #201e1b);
+  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.feature-list { list-style: none; margin: 24px 0 0; padding: 0; }
+.feature-list li {
+  display: flex; gap: 14px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  font-size: 0.94rem;
+  color: var(--ivory-dim);
+}
+.feature-list li:first-child { border-top: none; }
+.feature-list li::before { content: "—"; color: var(--vein-bright); flex-shrink: 0; }
+@media (max-width: 860px) {
+  .feature-split, .feature-split.reverse .feature-visual { grid-template-columns: 1fr; order: 0; }
+  .feature-split { grid-template-columns: 1fr; }
+}
+
+/* ---------- Activity feed ---------- */
+.feed-list { display: flex; flex-direction: column; }
+.feed-item {
+  display: flex;
+  gap: 18px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  font-size: 0.92rem;
+}
+.feed-item:first-child { border-top: none; }
+.feed-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--vein-bright); margin-top: 8px; flex-shrink: 0; }
+.feed-time { color: var(--ivory-dim); font-size: 0.78rem; margin-left: auto; white-space: nowrap; }
+
+/* ---------- CTA band ---------- */
+.cta-band {
+  padding: 110px 0;
+  text-align: center;
+  position: relative;
+}
+.cta-band h2 { max-width: 700px; margin: 0 auto 24px; }
+.cta-band .hero-actions { justify-content: center; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: 64px 0 40px;
+  border-top: 1px solid var(--line);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 48px;
+}
+.footer-grid h4 { font-family: 'Inter', sans-serif; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ivory-dim); margin-bottom: 16px; font-weight: 600; }
+.footer-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 0.88rem; color: var(--ivory-dim); }
+.footer-links a:hover { color: var(--ivory); }
+.footer-bottom {
+  display: flex; justify-content: space-between;
+  padding-top: 28px; border-top: 1px solid var(--line);
+  font-size: 0.78rem; color: var(--ivory-dim);
+  flex-wrap: wrap; gap: 12px;
+}
+@media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- Generic page header (sub pages) ---------- */
+.page-head {
+  padding: 64px 0 48px;
+  border-bottom: 1px solid var(--line);
+}
+.page-head h1 { font-size: clamp(2.1rem, 4vw, 3rem); }
+
+/* ---------- Forms ---------- */
+.form-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 40px;
+}
+.field { margin-bottom: 20px; }
+.field label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ivory-dim);
+  margin-bottom: 8px;
+}
+.field input, .field select, .field textarea {
+  width: 100%;
+  background: var(--charcoal);
+  border: 1px solid var(--line);
+  color: var(--ivory);
+  padding: 12px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.94rem;
+  border-radius: var(--radius);
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: 2px solid var(--vein-bright);
+  outline-offset: 1px;
+  border-color: var(--vein-bright);
+}
+.role-toggle { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 28px; }
+.role-toggle .role-opt {
+  border: 1px solid var(--line);
+  padding: 16px 10px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 0.82rem;
+  transition: all 0.2s;
+}
+.role-toggle .role-opt.selected { border-color: var(--vein-bright); background: rgba(124,163,140,0.08); color: var(--ivory); }
+@media (max-width: 560px) { .role-toggle { grid-template-columns: 1fr 1fr; } }
+
+/* Utility */
+.mt-0 { margin-top: 0; }
+.text-center { text-align: center; }
+.small { font-size: 0.82rem; color: var(--ivory-dim); }
+
+/* ---------- Dashboard layout ---------- */
+.dash-shell {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: calc(100vh - 76px);
+}
+.dash-sidebar {
+  border-right: 1px solid var(--line);
+  padding: 32px 20px;
+  background: var(--charcoal-soft);
+}
+.dash-sidebar .dash-user {
+  display: flex; align-items: center; gap: 12px;
+  padding-bottom: 24px; margin-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.dash-sidebar .dash-user .pro-avatar { width: 40px; height: 40px; margin: 0; }
+.dash-sidebar .dash-user strong { display: block; font-size: 0.9rem; }
+.dash-nav { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 2px; }
+.dash-nav a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px;
+  font-size: 0.88rem; color: var(--ivory-dim);
+  border-radius: var(--radius);
+  transition: all 0.2s;
+}
+.dash-nav a:hover { background: rgba(239,233,222,0.05); color: var(--ivory); }
+.dash-nav a.active { background: rgba(124,163,140,0.12); color: var(--vein-bright); font-weight: 600; }
+.dash-main { padding: 40px 44px; }
+.dash-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 36px; flex-wrap: wrap; gap: 16px; }
+
+.dash-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-bottom: 40px; }
+.dash-card {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 22px 24px;
+}
+.dash-card .num { font-family: 'Fraunces', serif; font-size: 2rem; color: var(--vein-bright); display: block; margin-bottom: 4px; }
+.dash-card .label { font-size: 0.8rem; color: var(--ivory-dim); text-transform: uppercase; letter-spacing: 0.05em; }
+.dash-card .delta { font-size: 0.76rem; color: var(--bronze-bright); margin-top: 6px; display: block; }
+
+.dash-panel {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  margin-bottom: 32px;
+}
+.dash-panel-head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 24px; border-bottom: 1px solid var(--line);
+}
+.dash-panel-head h3 { margin: 0; font-size: 1rem; }
+.dash-table { width: 100%; border-collapse: collapse; }
+.dash-table th, .dash-table td {
+  text-align: left; padding: 14px 24px;
+  font-size: 0.86rem; border-bottom: 1px solid var(--line);
+}
+.dash-table th { color: var(--ivory-dim); font-weight: 500; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.06em; }
+.dash-table tr:last-child td { border-bottom: none; }
+.status-pill {
+  display: inline-block; padding: 4px 11px; border-radius: 999px;
+  font-size: 0.72rem; letter-spacing: 0.02em;
+}
+.status-new { background: rgba(124,163,140,0.15); color: var(--vein-bright); }
+.status-progress { background: rgba(179,133,79,0.18); color: var(--bronze-bright); }
+.status-done { background: rgba(239,233,222,0.1); color: var(--ivory-dim); }
+
+.dash-two-col { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: start; }
+.progress-track { height: 6px; background: var(--charcoal); border-radius: 999px; overflow: hidden; margin-top: 8px; }
+.progress-fill { height: 100%; background: var(--vein-bright); }
+
+@media (max-width: 960px) {
+  .dash-shell { grid-template-columns: 1fr; }
+  .dash-sidebar { display: none; }
+  .dash-stats { grid-template-columns: 1fr 1fr; }
+  .dash-two-col { grid-template-columns: 1fr; }
+}
+
+/* ---------- Opportunity listing rows ---------- */
+.opp-list { display: flex; flex-direction: column; }
+.opp-row {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 20px; padding: 24px 0; border-top: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.opp-row:first-child { border-top: none; }
+.opp-main h3 { margin-bottom: 6px; font-size: 1.1rem; }
+.opp-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.opp-tags span {
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em;
+  border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; color: var(--ivory-dim);
+}
+
+/* ---------- Article / Knowledge Centre ---------- */
+.article-body {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.article-body p { font-size: 1.02rem; color: var(--ivory-dim); }
+.article-body h2 { margin-top: 2em; font-size: 1.7rem; }
+.article-body h3 { margin-top: 1.6em; font-size: 1.15rem; color: var(--ivory); }
+.article-body blockquote {
+  border-left: 2px solid var(--vein-bright);
+  margin: 2em 0;
+  padding: 4px 0 4px 22px;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--ivory);
+}
+.article-meta {
+  display: flex; gap: 18px; align-items: center;
+  font-size: 0.82rem; color: var(--ivory-dim);
+  margin-bottom: 8px;
+}
+.article-hero {
+  aspect-ratio: 21/9;
+  background: linear-gradient(135deg,#4a4038,#1f1c19);
+  border: 1px solid var(--line);
+  margin: 32px 0 40px;
+}
+.related-list { display: flex; flex-direction: column; }
+
+/* ---------- Project workspace ---------- */
+.ws-shell {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 0;
+  min-height: calc(100vh - 76px);
+}
+.ws-main { padding: 32px 40px; border-right: 1px solid var(--line); }
+.ws-side { padding: 32px 28px; background: var(--charcoal-soft); }
+.ws-side h4 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ivory-dim); margin-bottom: 14px; }
+.ws-side-block { margin-bottom: 32px; }
+
+.timeline { list-style: none; padding: 0; margin: 0; }
+.timeline li {
+  position: relative;
+  padding: 0 0 24px 26px;
+  border-left: 1px solid var(--line);
+  margin-left: 6px;
+}
+.timeline li:last-child { border-color: transparent; padding-bottom: 0; }
+.timeline li::before {
+  content: "";
+  position: absolute; left: -6px; top: 2px;
+  width: 11px; height: 11px; border-radius: 50%;
+  background: var(--charcoal-soft); border: 2px solid var(--line);
+}
+.timeline li.done::before { background: var(--vein-bright); border-color: var(--vein-bright); }
+.timeline li.current::before { background: var(--bronze-bright); border-color: var(--bronze-bright); }
+.timeline .t-title { font-size: 0.92rem; color: var(--ivory); font-weight: 500; }
+.timeline .t-date { font-size: 0.76rem; color: var(--ivory-dim); }
+
+.file-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 0; border-top: 1px solid var(--line);
+  font-size: 0.86rem;
+}
+.file-row:first-child { border-top: none; }
+
+.chat-thread { display: flex; flex-direction: column; gap: 18px; margin-bottom: 24px; }
+.chat-msg { max-width: 78%; }
+.chat-msg .bubble {
+  background: var(--panel); border: 1px solid var(--line);
+  padding: 12px 16px; border-radius: var(--radius);
+  font-size: 0.92rem; color: var(--ivory);
+}
+.chat-msg .meta { font-size: 0.74rem; color: var(--ivory-dim); margin-top: 6px; }
+.chat-msg.mine { margin-left: auto; text-align: right; }
+.chat-msg.mine .bubble { background: rgba(124,163,140,0.14); border-color: var(--vein); }
+.chat-input { display: flex; gap: 10px; margin-top: 8px; }
+.chat-input input { flex: 1; }
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo"><span class="mark"></span>Natural Stone Network</a>
+    <nav class="nav-links">
+      <a href="index.html#gallery">Inspiration</a>
+      <a href="professionals.html" class="active">Professionals</a>
+      <a href="opportunities.html">Work Opportunities</a>
+      <a href="index.html#suppliers">Suppliers</a>
+      <a href="index.html#knowledge">Knowledge Centre</a>
+    </nav>
+    <div class="nav-cta" data-auth-slot>
+      <a href="signup.html?mode=login" class="btn btn-ghost btn-sm">Log in</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Join as Founding Member</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">The UK's specialist network for natural stone</span>
+      <h1>Where exceptional <em>stone craft</em> gets discovered.</h1>
+      <p class="hero-lede">Marble, granite, limestone, travertine, quartzite, slate and sandstone — showcased by the fabricators, masons and installers who cut, set and restore it. Not a directory. A living portfolio for the trade.</p>
+      <div class="hero-actions">
+        <a href="professionals.html" class="btn btn-primary">I need natural stone work</a>
+        <a href="signup.html" class="btn btn-ghost">I'm a professional</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+        <path class="vein-line" d="M 40 20 C 120 90, 60 160, 150 200 S 320 250, 260 340 S 100 420, 180 480" />
+        <path class="vein-line secondary" d="M 340 10 C 260 60, 300 140, 210 180 S 60 230, 120 320 S 280 400, 220 490" />
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="band">
+  <div class="container band-grid">
+    <div class="stat"><span class="num" data-count="1840" data-suffix="+">0</span><span class="label">Projects published</span></div>
+    <div class="stat"><span class="num" data-count="620" data-suffix="+">0</span><span class="label">Verified professionals</span></div>
+    <div class="stat"><span class="num" data-count="140" data-suffix="+">0</span><span class="label">Architect members</span></div>
+    <div class="stat"><span class="num" data-count="7" data-suffix=" stone types">0</span><span class="label">Covered at launch</span></div>
+  </div>
+</div>
+
+<section class="section" id="journeys">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Four ways in</span>
+        <h2>Built for everyone the industry runs on.</h2>
+      </div>
+      <p>Whichever seat you take at the table, Natural Stone Network gives you a reason to come back — not just a listing to be found in.</p>
+    </div>
+    <div class="journey-grid">
+      <a class="journey-card" href="professionals.html">
+        <span class="journey-num">01 — Customer</span>
+        <h3>I need natural stone work</h3>
+        <p>Describe your project in plain language and get matched with vetted specialists near you.</p>
+        <span class="arrow">Start a project brief →</span>
+      </a>
+      <a class="journey-card" href="signup.html">
+        <span class="journey-num">02 — Professional</span>
+        <h3>I'm a professional</h3>
+        <p>Publish your work, build a following, and turn engagement into enquiries.</p>
+        <span class="arrow">Create your portfolio →</span>
+      </a>
+      <a class="journey-card" href="opportunities.html">
+        <span class="journey-num">03 — Employer</span>
+        <h3>I need to hire</h3>
+        <p>Post permanent, temporary and subcontract stone work to a specialist talent pool.</p>
+        <span class="arrow">Post an opportunity →</span>
+      </a>
+      <a class="journey-card" href="signup.html">
+        <span class="journey-num">04 — Supplier</span>
+        <h3>I'm a supplier</h3>
+        <p>Put your slabs, materials and showroom in front of the people specifying stone.</p>
+        <span class="arrow">List your materials →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Project inspiration</span>
+        <h2>Recently completed, beautifully documented.</h2>
+      </div>
+      <p>Searchable by stone, location and service — every project links back to the professional who made it.</p>
+    </div>
+    <div class="filter-bar" data-target="#project-grid">
+      <div class="chip active" data-filter="all">All stone</div>
+      <div class="chip" data-filter="marble">Marble</div>
+      <div class="chip" data-filter="granite">Granite</div>
+      <div class="chip" data-filter="limestone">Limestone</div>
+      <div class="chip" data-filter="travertine">Travertine</div>
+      <div class="chip" data-filter="slate">Slate</div>
+    </div>
+    <div class="project-grid" id="project-grid" data-fallback="true">
+
+      <a class="project-card" href="project.html" data-tags="marble">
+        <div class="project-thumb">
+          <div class="swatch" style="background:linear-gradient(135deg,#4a4038,#1f1c19)"></div>
+          <span class="tag">Marble · Kitchen</span>
+        </div>
+        <div class="project-body">
+          <h3>Calacatta island &amp; splashback</h3>
+          <p class="small">Fabricated &amp; installed by Halden Stoneworks · Surrey</p>
+          <div class="project-meta">
+            <div class="project-stats"><span>♥ 214</span><span>⚑ 58 saved</span></div>
+            <span>Project of the Week</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-card" href="project.html" data-tags="granite">
+        <div class="project-thumb">
+          <div class="swatch" style="background:linear-gradient(135deg,#3d3a34,#231f1b)"></div>
+          <span class="tag">Granite · Worktops</span>
+        </div>
+        <div class="project-body">
+          <h3>Absolute Black galley worktops</h3>
+          <p class="small">Templated &amp; fitted by Crane &amp; Vale · Leeds</p>
+          <div class="project-meta">
+            <div class="project-stats"><span>♥ 96</span><span>⚑ 21 saved</span></div>
+            <span>Verified</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-card" href="project.html" data-tags="limestone">
+        <div class="project-thumb">
+          <div class="swatch" style="background:linear-gradient(135deg,#59503f,#26221c)"></div>
+          <span class="tag">Limestone · Flooring</span>
+        </div>
+        <div class="project-body">
+          <h3>Hand-honed Jura floor, hallway &amp; boot room</h3>
+          <p class="small">Laid by The Yorkshire Stone Co. · North Yorkshire</p>
+          <div class="project-meta">
+            <div class="project-stats"><span>♥ 152</span><span>⚑ 40 saved</span></div>
+            <span>Architect Recommended</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-card" href="project.html" data-tags="travertine">
+        <div class="project-thumb">
+          <div class="swatch" style="background:linear-gradient(135deg,#6b5c46,#2c261e)"></div>
+          <span class="tag">Travertine · Bathroom</span>
+        </div>
+        <div class="project-body">
+          <h3>Filled &amp; honed travertine wet-room</h3>
+          <p class="small">Installed by Marrow &amp; Finch · London</p>
+          <div class="project-meta">
+            <div class="project-stats"><span>♥ 301</span><span>⚑ 87 saved</span></div>
+            <span>Most Admired</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-card" href="project.html" data-tags="slate">
+        <div class="project-thumb">
+          <div class="swatch" style="background:linear-gradient(135deg,#3a3d3d,#1a1c1c)"></div>
+          <span class="tag">Slate · Paving</span>
+        </div>
+        <div class="project-body">
+          <h3>Riven slate terrace &amp; steps</h3>
+          <p class="small">Landscaped by Corrie Stone &amp; Garden · Cumbria</p>
+          <div class="project-meta">
+            <div class="project-stats"><span>♥ 74</span><span>⚑ 19 saved</span></div>
+            <span>Rising Professional</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="project-card" href="project.html" data-tags="marble">
+        <div class="project-thumb">
+          <div class="swatch" style="background:linear-gradient(135deg,#524a3f,#211d19)"></div>
+          <span class="tag">Marble · Restoration</span>
+        </div>
+        <div class="project-body">
+          <h3>Victorian hearth restoration</h3>
+          <p class="small">Restored by Aldergate Stone Restoration · Bath</p>
+          <div class="project-meta">
+            <div class="project-stats"><span>♥ 128</span><span>⚑ 33 saved</span></div>
+            <span>Editor's Choice</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="planner">
+  <div class="container feature-split">
+    <div>
+      <span class="eyebrow">AI Project Planner</span>
+      <h2>Tell us what you want. We'll turn it into a brief.</h2>
+      <p>No industry knowledge required. Describe your project in your own words, and the planner asks the right follow-up questions — material, application, timeline, budget shape — then structures it into a brief professionals can quote against.</p>
+      <ul class="feature-list">
+        <li>Understands stone types, finishes and applications automatically</li>
+        <li>Asks only the questions that matter for your project</li>
+        <li>Matches your brief to suitably specialised, local professionals</li>
+        <li>You review and send — nothing is shared without your say-so</li>
+      </ul>
+      <div class="hero-actions" style="margin-top:28px;">
+        <a href="signup.html" class="btn btn-primary">Describe your project</a>
+      </div>
+    </div>
+    <div class="feature-visual">
+      <div style="position:absolute;inset:24px;border:1px solid var(--line);padding:24px;font-size:0.86rem;">
+        <p class="small" style="margin-bottom:14px;">You wrote:</p>
+        <p style="color:var(--ivory);font-style:italic;">"I want a high-end white marble bathroom in London, roughly 8m², ready for spring."</p>
+        <p class="small" style="margin:18px 0 8px;">Natural Stone Network suggests:</p>
+        <p style="color:var(--vein-bright);margin:0;">Calacatta or Statuario marble · honed finish · 3 fabricators &amp; installers near you with bathroom experience</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="professionals">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Featured professionals</span>
+        <h2>This month's standout craftsmanship.</h2>
+      </div>
+      <a href="professionals.html" class="btn btn-ghost btn-sm">View all professionals</a>
+    </div>
+    <div class="pro-grid" id="home-pro-grid" data-fallback="true">
+      <div class="pro-card">
+        <div class="pro-avatar"></div>
+        <h3>Halden Stoneworks</h3>
+        <div class="pro-role">Fabricator · Marble &amp; Granite</div>
+        <div class="pro-loc">Guildford, Surrey</div>
+        <span class="badge">Founding Member</span>
+      </div>
+      <div class="pro-card">
+        <div class="pro-avatar"></div>
+        <h3>Marrow &amp; Finch</h3>
+        <div class="pro-role">Installer · Bathrooms &amp; Wet Rooms</div>
+        <div class="pro-loc">London</div>
+        <span class="badge">Verified</span>
+      </div>
+      <div class="pro-card">
+        <div class="pro-avatar"></div>
+        <h3>Aldergate Stone Restoration</h3>
+        <div class="pro-role">Restoration Specialist</div>
+        <div class="pro-loc">Bath</div>
+        <span class="badge">Architect Recommended</span>
+      </div>
+      <div class="pro-card">
+        <div class="pro-avatar"></div>
+        <h3>The Yorkshire Stone Co.</h3>
+        <div class="pro-role">Mason · Flooring &amp; Paving</div>
+        <div class="pro-loc">North Yorkshire</div>
+        <span class="badge">Founding Member</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="opportunities">
+  <div class="container feature-split reverse">
+    <div class="feature-visual">
+      <div style="position:absolute;inset:24px;display:flex;flex-direction:column;gap:12px;font-size:0.82rem;">
+        <div style="border:1px solid var(--line);padding:14px;display:flex;justify-content:space-between;"><span>CNC Operator — subcontract, 6 weeks</span><span class="small">Kent</span></div>
+        <div style="border:1px solid var(--line);padding:14px;display:flex;justify-content:space-between;"><span>Senior Fabricator — permanent</span><span class="small">Manchester</span></div>
+        <div style="border:1px solid var(--line);padding:14px;display:flex;justify-content:space-between;"><span>Stone Mason — temporary, restoration project</span><span class="small">Edinburgh</span></div>
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow">Live work opportunities</span>
+      <h2>Recruitment built for how stone work actually happens.</h2>
+      <p>Permanent roles sit alongside temporary and subcontract work — templating, CNC, fixing, polishing and restoration — so businesses can flex their team to the job in hand.</p>
+      <ul class="feature-list">
+        <li>Post permanent, temporary or subcontract opportunities</li>
+        <li>Reach a talent pool that's already verified on the network</li>
+        <li>Candidates apply with a portfolio, not just a CV</li>
+      </ul>
+      <div class="hero-actions" style="margin-top:28px;">
+        <a href="signup.html" class="btn btn-ghost">Post an opportunity</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="activity">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Industry activity</span>
+        <h2>The network, live.</h2>
+      </div>
+    </div>
+    <div class="feed-list">
+      <div class="feed-item"><span class="feed-dot"></span><span>Halden Stoneworks published a new marble kitchen in Surrey</span><span class="feed-time">2h ago</span></div>
+      <div class="feed-item"><span class="feed-dot"></span><span>Aldergate Stone Restoration was recommended by an architect member</span><span class="feed-time">5h ago</span></div>
+      <div class="feed-item"><span class="feed-dot"></span><span>A new commercial paving project was posted in Manchester</span><span class="feed-time">9h ago</span></div>
+      <div class="feed-item"><span class="feed-dot"></span><span>Marrow &amp; Finch's wet-room project passed 300 saves</span><span class="feed-time">Yesterday</span></div>
+      <div class="feed-item"><span class="feed-dot"></span><span>Corrie Stone &amp; Garden joined as a Founding Member</span><span class="feed-time">Yesterday</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="suppliers">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">For suppliers</span>
+        <h2>Put your slabs in front of the people specifying stone.</h2>
+      </div>
+      <a href="signup.html" class="btn btn-ghost btn-sm">List your materials</a>
+    </div>
+    <div class="pro-grid" id="home-supplier-grid" data-fallback="true">
+      <a class="pro-card" href="supplier-profile.html"><div class="pro-avatar"></div><h3>Solent Slab Imports</h3><div class="pro-role">Marble &amp; Granite Supplier</div><div class="pro-loc">Southampton</div><span class="badge">Featured</span></a>
+      <div class="pro-card"><div class="pro-avatar"></div><h3>Northern Quarries Ltd</h3><div class="pro-role">Yorkstone &amp; Sandstone</div><div class="pro-loc">Leeds</div><span class="badge">Featured</span></div>
+      <div class="pro-card"><div class="pro-avatar"></div><h3>Cotswold Limestone Co.</h3><div class="pro-role">Limestone Supplier</div><div class="pro-loc">Cirencester</div><span class="badge">Stone of the Month</span></div>
+      <div class="pro-card"><div class="pro-avatar"></div><h3>Highland Slate Merchants</h3><div class="pro-role">Slate Supplier</div><div class="pro-loc">Aberdeen</div><span class="badge">Verified</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="knowledge">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Knowledge centre</span>
+        <h2>Understand stone before you commit to it.</h2>
+      </div>
+      <p>Guides written for clients, not tradespeople — plus deeper reference for the industry.</p>
+    </div>
+    <div class="journey-grid">
+      <a class="journey-card" href="article.html"><span class="journey-num">Guide</span><h3>Marble vs. quartzite for kitchens</h3><p>What actually differs day-to-day once it's installed.</p><span class="arrow">Read →</span></a>
+      <a class="journey-card" href="article.html"><span class="journey-num">Guide</span><h3>Caring for honed limestone</h3><p>Sealing, cleaning and what to avoid.</p><span class="arrow">Read →</span></a>
+      <a class="journey-card" href="article.html"><span class="journey-num">Guide</span><h3>What a stone quote should include</h3><p>Templating, waste factor, edge profiles explained.</p><span class="arrow">Read →</span></a>
+      <a class="journey-card" href="article.html"><span class="journey-num">Guide</span><h3>Restoring reclaimed stone flooring</h3><p>When to restore and when to replace.</p><span class="arrow">Read →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <span class="eyebrow" style="justify-content:center;">Founding membership is open</span>
+    <h2>Help shape the UK's home for natural stone.</h2>
+    <p class="small" style="max-width:520px;margin:0 auto 32px;">Founding Members get a free profile through launch, priority placement in search, and a permanent Founding Member badge.</p>
+    <div class="hero-actions">
+      <a href="signup.html" class="btn btn-primary">Join as a Founding Member</a>
+      <a href="professionals.html" class="btn btn-ghost">Browse the network first</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="mark"></span>Natural Stone Network</a>
+        <p class="small" style="margin-top:16px;max-width:280px;">The UK's specialist digital home for the natural stone industry — discovery, portfolio, community and work, in one place.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#gallery">Project inspiration</a></li>
+          <li><a href="professionals.html">Professionals</a></li>
+          <li><a href="opportunities.html">Work opportunities</a></li>
+          <li><a href="index.html#suppliers">Suppliers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Join</h4>
+        <ul class="footer-links">
+          <li><a href="signup.html">Become a Founding Member</a></li>
+          <li><a href="signup.html">Create a customer account</a></li>
+          <li><a href="signup.html">List as a supplier</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#knowledge">Knowledge centre</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Natural Stone Network. All rights reserved.</span>
+      <span>Built for the UK natural stone industry.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Natural Stone Network — API client
+// Talks to the backend in ../backend. No build step, no dependencies.
+// Auth token is kept in sessionStorage so a refresh doesn't log the user out,
+// but closing the tab does (fine for an MVP demo).
+
+const API_BASE = window.NSN_API_BASE || 'http://localhost:4000/api';
+const TOKEN_KEY = 'nsn_token';
+const USER_KEY = 'nsn_user';
+
+const Auth = {
+  getToken() {
+    return sessionStorage.getItem(TOKEN_KEY);
+  },
+  getUser() {
+    const raw = sessionStorage.getItem(USER_KEY);
+    return raw ? JSON.parse(raw) : null;
+  },
+  setSession(token, user) {
+    sessionStorage.setItem(TOKEN_KEY, token);
+    sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+  },
+  clearSession() {
+    sessionStorage.removeItem(TOKEN_KEY);
+    sessionStorage.removeItem(USER_KEY);
+  },
+  isLoggedIn() {
+    return !!Auth.getToken();
+  },
+};
+
+async function apiRequest(path, { method = 'GET', body, auth = false } = {}) {
+  const headers = { 'Content-Type': 'application/json' };
+  if (auth) {
+    const token = Auth.getToken();
+    if (token) headers.Authorization = `Bearer ${token}`;
+  }
+  let res;
+  try {
+    res = await fetch(`${API_BASE}${path}`, {
+      method,
+      headers,
+      body: body !== undefined ? JSON.stringify(body) : undefined,
+    });
+  } catch (networkErr) {
+    const err = new Error('Could not reach the Natural Stone Network API. Is the backend running?');
+    err.cause = networkErr;
+    err.offline = true;
+    throw err;
+  }
+
+  let data = null;
+  try {
+    data = await res.json();
+  } catch {
+    // no body
+  }
+
+  if (!res.ok) {
+    const message = (data && data.error) || `Request failed (${res.status})`;
+    const err = new Error(message);
+    err.statusCode = res.status;
+    throw err;
+  }
+  return data;
+}
+
+const Api = {
+  // Auth
+  register(payload) { return apiRequest('/auth/register', { method: 'POST', body: payload }); },
+  login(payload) { return apiRequest('/auth/login', { method: 'POST', body: payload }); },
+  me() { return apiRequest('/auth/me', { auth: true }); },
+
+  // Professionals & suppliers
+  listProfessionals(params = {}) { return apiRequest(`/professionals${qs(params)}`); },
+  getProfessional(id) { return apiRequest(`/professionals/${id}`); },
+  listSuppliers(params = {}) { return apiRequest(`/suppliers${qs(params)}`); },
+  getSupplier(id) { return apiRequest(`/suppliers/${id}`); },
+
+  // Projects
+  listProjects(params = {}) { return apiRequest(`/projects${qs(params)}`); },
+  getProject(id) { return apiRequest(`/projects/${id}`); },
+  createProject(payload) { return apiRequest('/projects', { method: 'POST', body: payload, auth: true }); },
+  likeProject(id) { return apiRequest(`/projects/${id}/like`, { method: 'POST', auth: true }); },
+  unlikeProject(id) { return apiRequest(`/projects/${id}/like`, { method: 'DELETE', auth: true }); },
+  saveProject(id) { return apiRequest(`/projects/${id}/save`, { method: 'POST', auth: true }); },
+  unsaveProject(id) { return apiRequest(`/projects/${id}/save`, { method: 'DELETE', auth: true }); },
+  listComments(id) { return apiRequest(`/projects/${id}/comments`); },
+  postComment(id, body) { return apiRequest(`/projects/${id}/comments`, { method: 'POST', body: { body }, auth: true }); },
+  follow(userId) { return apiRequest(`/users/${userId}/follow`, { method: 'POST', auth: true }); },
+  unfollow(userId) { return apiRequest(`/users/${userId}/follow`, { method: 'DELETE', auth: true }); },
+
+  // Enquiries / quotes / messages
+  createEnquiry(payload) { return apiRequest('/enquiries', { method: 'POST', body: payload, auth: true }); },
+  listMyEnquiries() { return apiRequest('/enquiries', { auth: true }); },
+  getEnquiry(id) { return apiRequest(`/enquiries/${id}`, { auth: true }); },
+  updateEnquiryStatus(id, status) { return apiRequest(`/enquiries/${id}`, { method: 'PATCH', body: { status }, auth: true }); },
+  sendQuote(enquiryId, payload) { return apiRequest(`/enquiries/${enquiryId}/quotes`, { method: 'POST', body: payload, auth: true }); },
+  approveQuote(quoteId) { return apiRequest(`/quotes/${quoteId}/approve`, { method: 'POST', auth: true }); },
+  listMessages(enquiryId) { return apiRequest(`/enquiries/${enquiryId}/messages`, { auth: true }); },
+  sendMessage(enquiryId, body) { return apiRequest(`/enquiries/${enquiryId}/messages`, { method: 'POST', body: { body }, auth: true }); },
+
+  // Opportunities
+  listOpportunities(params = {}) { return apiRequest(`/opportunities${qs(params)}`); },
+  getOpportunity(id) { return apiRequest(`/opportunities/${id}`); },
+  createOpportunity(payload) { return apiRequest('/opportunities', { method: 'POST', body: payload, auth: true }); },
+  applyToOpportunity(id, coverNote) { return apiRequest(`/opportunities/${id}/apply`, { method: 'POST', body: { coverNote }, auth: true }); },
+  listApplications(id) { return apiRequest(`/opportunities/${id}/applications`, { auth: true }); },
+
+  // Dashboards
+  professionalDashboard() { return apiRequest('/dashboard/professional', { auth: true }); },
+  businessDashboard() { return apiRequest('/dashboard/business', { auth: true }); },
+};
+
+function qs(params) {
+  const clean = Object.fromEntries(Object.entries(params).filter(([, v]) => v !== undefined && v !== null && v !== ''));
+  const s = new URLSearchParams(clean).toString();
+  return s ? `?${s}` : '';
+}
+
+// ---------- Shared header auth state ----------
+// Any page with a `[data-auth-slot]` element in its nav gets a login/signup
+// link swapped for the user's name + a logout link once they're signed in.
+function renderAuthSlot() {
+  document.querySelectorAll('[data-auth-slot]').forEach((slot) => {
+    const user = Auth.getUser();
+    if (user) {
+      slot.innerHTML = `<span class="auth-user">${escapeHtml(user.name)}</span> <a href="#" data-logout>Log out</a>`;
+      slot.querySelector('[data-logout]').addEventListener('click', (e) => {
+        e.preventDefault();
+        Auth.clearSession();
+        window.location.reload();
+      });
+    } else {
+      slot.innerHTML = `<a href="signup.html">Sign up</a> / <a href="signup.html?mode=login">Log in</a>`;
+    }
+  });
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str == null ? '' : String(str);
+  return div.innerHTML;
+}
+
+function formatGBP(cents) {
+  if (cents === null || cents === undefined) return '';
+  return (cents / 100).toLocaleString('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 });
+}
+
+function timeAgo(isoLike) {
+  if (!isoLike) return '';
+  const then = new Date(isoLike.replace(' ', 'T') + 'Z');
+  const diffMs = Date.now() - then.getTime();
+  const mins = Math.floor(diffMs / 60000);
+  if (mins < 1) return 'just now';
+  if (mins < 60) return `${mins}m ago`;
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return `${hrs}h ago`;
+  const days = Math.floor(hrs / 24);
+  if (days < 30) return `${days}d ago`;
+  return then.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+document.addEventListener('DOMContentLoaded', renderAuthSlot);
+
+window.NSN = { Api, Auth, escapeHtml, formatGBP, timeAgo, qs };
+
+</script>
+<script>
+// Natural Stone Network — shared front-end behaviour (no build step required)
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Mobile nav toggle
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+  }
+
+  // Filter chips (project gallery / directory)
+  document.querySelectorAll('.filter-bar').forEach((bar) => {
+    bar.addEventListener('click', (e) => {
+      const chip = e.target.closest('.chip');
+      if (!chip) return;
+      bar.querySelectorAll('.chip').forEach((c) => c.classList.remove('active'));
+      chip.classList.add('active');
+      const filter = chip.dataset.filter || 'all';
+      const grid = document.querySelector(bar.dataset.target || '.project-grid, .pro-grid');
+      if (!grid) return;
+      grid.querySelectorAll('[data-tags]').forEach((card) => {
+        const tags = (card.dataset.tags || '').split(',');
+        card.style.display = (filter === 'all' || tags.includes(filter)) ? '' : 'none';
+      });
+    });
+  });
+
+  // Animated stat counters
+  const stats = document.querySelectorAll('.stat .num[data-count]');
+  if (stats.length) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.count, 10);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1200;
+        const start = performance.now();
+        function tick(now) {
+          const p = Math.min(1, (now - start) / duration);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(eased * target).toLocaleString() + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    stats.forEach((s) => observer.observe(s));
+  }
+
+  // Role toggle on signup / enquiry forms
+  document.querySelectorAll('.role-toggle').forEach((group) => {
+    group.addEventListener('click', (e) => {
+      const opt = e.target.closest('.role-opt');
+      if (!opt) return;
+      group.querySelectorAll('.role-opt').forEach((o) => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      const hidden = group.parentElement.querySelector('input[name="role"]');
+      if (hidden) hidden.value = opt.dataset.role;
+    });
+  });
+
+  // Demo forms: prevent real submission, show a confirmation state
+  document.querySelectorAll('form[data-demo]').forEach((form) => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      if (btn) {
+        btn.textContent = 'Submitted — thank you';
+        btn.disabled = true;
+      }
+    });
+  });
+});
+
+</script>
+<script>
+(async function () {
+  const { Api, escapeHtml } = window.NSN;
+
+  // Featured projects
+  try {
+    const { projects } = await Api.listProjects({ limit: 6 });
+    if (projects.length) {
+      const grid = document.getElementById('project-grid');
+      grid.removeAttribute('data-fallback');
+      grid.innerHTML = projects.map((p) => `
+        <a class="project-card" href="project.html?id=${p.id}" data-tags="${escapeHtml((p.stone_type || '').toLowerCase())}">
+          <div class="project-thumb">
+            <div class="swatch" style="background:linear-gradient(135deg,#4a4038,#1f1c19)"></div>
+            <span class="tag">${escapeHtml(p.stone_type || '')}${p.service ? ' · ' + escapeHtml(p.service) : ''}</span>
+          </div>
+          <div class="project-body">
+            <h3>${escapeHtml(p.title)}</h3>
+            <p class="small">By ${escapeHtml(p.owner_name)}${p.location ? ' · ' + escapeHtml(p.location) : ''}</p>
+          </div>
+        </a>
+      `).join('');
+    }
+  } catch (err) { console.warn('Featured projects unavailable:', err.message); }
+
+  // Featured professionals
+  try {
+    const { professionals } = await Api.listProfessionals({ limit: 4 });
+    if (professionals.length) {
+      const grid = document.getElementById('home-pro-grid');
+      grid.removeAttribute('data-fallback');
+      grid.innerHTML = professionals.map((p) => `
+        <a class="pro-card" href="professional-profile.html?id=${p.user_id}">
+          <div class="pro-avatar"></div>
+          <h3>${escapeHtml(p.business_name)}</h3>
+          <div class="pro-role">${escapeHtml(p.specialism || p.account_type)}</div>
+          <div class="pro-loc">${escapeHtml(p.location || '')}</div>
+          <span class="badge">${p.founding_member ? 'Founding Member' : (p.verified ? 'Verified' : 'Professional')}</span>
+        </a>
+      `).join('');
+    }
+  } catch (err) { console.warn('Featured professionals unavailable:', err.message); }
+
+  // Featured suppliers
+  try {
+    const { suppliers } = await Api.listSuppliers({ limit: 4 });
+    if (suppliers.length) {
+      const grid = document.getElementById('home-supplier-grid');
+      grid.removeAttribute('data-fallback');
+      grid.innerHTML = suppliers.map((s) => `
+        <a class="pro-card" href="supplier-profile.html?id=${s.user_id}">
+          <div class="pro-avatar"></div>
+          <h3>${escapeHtml(s.business_name)}</h3>
+          <div class="pro-role">${escapeHtml(s.materials || 'Natural Stone Supplier')}</div>
+          <div class="pro-loc">${escapeHtml(s.location || '')}</div>
+          <span class="badge">${s.featured ? 'Featured' : (s.verified ? 'Verified' : 'Supplier')}</span>
+        </a>
+      `).join('');
+    }
+  } catch (err) { console.warn('Featured suppliers unavailable:', err.message); }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "natural-stone-network-api",
+  "version": "0.1.0",
+  "description": "Natural Stone Network backend API — zero external dependencies (built-in http + node:sqlite).",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node src/seed.js"
+  },
+  "license": "UNLICENSED"
+}
