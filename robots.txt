@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://primemarbletiling.co.uk/sitemap.xml
